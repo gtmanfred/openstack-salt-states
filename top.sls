@@ -3,7 +3,7 @@ base:
     - defaults
     - hosts
     - repos
-    - packages.updated
+    #- packages.updated
   'salt*':
     - iptables.salt-master
   'postgres*':

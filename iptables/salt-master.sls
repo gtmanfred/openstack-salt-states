@@ -9,7 +9,7 @@ salt master rules:
     - match: state
     - connstate: NEW
     - proto: tcp
-    - in-interface: eth1
+    - in-interface: eth2
     - save: True
     - names:
       - master rule 1:
