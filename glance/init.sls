@@ -4,5 +4,4 @@ include:
   - .packages
   - .config
   - .sync_db
-  - keystone.setup
   - .service
