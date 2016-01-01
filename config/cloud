@@ -1,0 +1,10 @@
+update_cachedir: True
+diff_cache_events: True
+change_password: True
+wait_for_ip_timeout: 6000
+display_ssh_output: False
+protocol: ipv4
+script_args: -UP git 2015.8
+log_level: critical
+minion:
+  master: salt.manfred.io
