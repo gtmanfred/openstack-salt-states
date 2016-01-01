@@ -7,3 +7,4 @@ export OS_PASSWORD=adminpass
 export OS_REGION_NAME=RegionOne
 export OS_AUTH_URL=http://keystone.manfred.io:35357/v3
 export OS_IDENTITY_API_VERSION=3
+export OS_ENDPOINT_TYPE=internalURL

@@ -9,6 +9,8 @@ neutron config file:
         - source: salt://neutronapi/files/dhcp_agent.ini
       - /etc/neutron/plugins/ml2/linuxbridge_agent.ini:
         - source: salt://neutronapi/files/linuxbridge_agent.ini
+      - /etc/neutron/metadata_agent.ini:
+        - source: salt://neutronapi/files/metadata_agent.ini
     - user: neutron
     - group: neutron
     - mode: 640

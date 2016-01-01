@@ -8,3 +8,4 @@ export OS_AUTH_URL=http://keystone.manfred.io:5000/v3
 export OS_IDENTITY_API_VERSION=3
 export OS_REGION_NAME=RegionOne
 export OS_IMAGE_API_VERSION=2
+export OS_ENDPOINT_TYPE=internalURL

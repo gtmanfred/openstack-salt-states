@@ -1,13 +1,13 @@
 ips:
   glance:
-    public: 104.130.6.193
-    private: 10.208.225.20
+    public: 104.130.12.89
+    private: 10.208.231.142
   keystone:
-    public: 104.130.11.114
-    private: 10.208.228.83
+    public: 172.99.69.97
+    private: 10.209.129.200
   novaapi:
-    public: 162.242.244.245
-    private: 10.208.164.36
+    public: 172.99.69.239
+    private: 10.209.131.219
   neutronapi:
-    public: 104.130.14.83
-    private: 10.208.235.13
+    public: 172.99.69.212
+    private: 10.209.131.77
