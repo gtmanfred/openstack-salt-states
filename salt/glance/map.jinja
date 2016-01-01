@@ -1,0 +1,2 @@
+{% import_yaml "yamls/glance/postgres.yaml" as postgres %}
+{% set postgres = salt['pillar.get']('postgres', default=postgres.postgres, merge=True) %}

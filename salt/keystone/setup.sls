@@ -1,5 +1,6 @@
-{%- if pillar.keystone.services is defined %}
-{%- for service in pillar.keystone.services %}
+{% from "keystone/map.jinja" import keystone with context %}
+{%- if keystone.services is defined %}
+{%- for service in keystone.services %}
 keystone service {{service['name']}}:
   keystone.service_present:
     - name: {{service['name']}}
@@ -8,8 +9,8 @@ keystone service {{service['name']}}:
 {%- endfor %}
 {%- endif %}
 
-{%- if pillar.keystone.endpoints is defined %}
-{%- for endpoint in pillar.keystone.endpoints %}
+{%- if keystone.endpoints is defined %}
+{%- for endpoint in keystone.endpoints %}
 keystone endpoint {{endpoint['name']}}:
   keystone.endpoint_present:
     - name: {{endpoint['name']}}
@@ -20,8 +21,8 @@ keystone endpoint {{endpoint['name']}}:
 {%- endfor %}
 {%- endif %}
 
-{%- if pillar.keystone.tenants is defined %}
-{%- for tenant in pillar.keystone.tenants %}
+{%- if keystone.tenants is defined %}
+{%- for tenant in keystone.tenants %}
 keystone tenant {{tenant['name']}}:
   keystone.tenant_present:
     - name: {{tenant['name']}}
@@ -30,16 +31,16 @@ keystone tenant {{tenant['name']}}:
 {%- endfor %}
 {%- endif %}
 
-{%- if pillar.keystone.roles is defined %}
-{%- for role in pillar.keystone.roles %}
+{%- if keystone.roles is defined %}
+{%- for role in keystone.roles %}
 keystone role {{role}}:
   keystone.role_present:
     - name: {{role}}
 {%- endfor %}
 {%- endif %}
 
-{%- if pillar.keystone.users is defined %}
-{%- for user in pillar.keystone.users.values() %}
+{%- if keystone.users is defined %}
+{%- for user in keystone.users.values() %}
 keystone user {{user['name']}}:
   keystone.user_present:
     - name: {{user['name']}}

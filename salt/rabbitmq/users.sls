@@ -1,9 +1,10 @@
+{% from "rabbitmq/map.jinja" import rabbitmq with context %}
 rabbitmq remove guest:
   rabbitmq_user.absent:
     - name: guest
 
-{%- if pillar.rabbitmq.users is defined %}
-{%- for user in pillar.rabbitmq.users.values() %}
+{%- if rabbitmq.users is defined %}
+{%- for user in rabbitmq.users.values() %}
 rabbitmq create {{user['username']}}:
   rabbitmq_user.present:
     - name: {{user['username']}}

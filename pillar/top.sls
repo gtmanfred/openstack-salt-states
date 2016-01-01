@@ -1,23 +1,16 @@
 base:
-  'postgres*':
-    - postgres
-  'rabbitmq*':
-    - rabbitmq
+  '*':
+    - ips
   'keystone*':
-    - postgres.keystone
-    - keystone
+    - keystone.token
   'glance*':
-    - postgres.glance
+    - keystone.token
     - keystone.glance
   'nova*':
+    - keystone.token
     - keystone.nova
     - keystone.neutron
-    - rabbitmq.nova
-  'novaapi*':
-    - postgres.nova
   'neutron*':
+    - keystone.token
     - keystone.neutron
     - keystone.nova
-    - rabbitmq.neutron
-  'neutronapi*':
-    - postgres.neutron

@@ -1,4 +1,5 @@
-{%- for value in pillar.postgres.users.itervalues() %}
+{% from "postgres/map.jinja" import postgres with context %}
+{%- for value in postgres.users.itervalues() %}
 create user {{value['username']}}:
   postgres_user.present:
     - name: {{value['username']}}

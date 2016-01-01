@@ -1,0 +1,5 @@
+{% import_yaml "yamls/neutron/keystone.yaml" as keystone %}
+{% set keystone = salt['pillar.get']('keystone', default=keystone.keystone, merge=True) %}
+
+{% import_yaml "yamls/openstack/rabbitmq.yaml" as openstack %}
+{% set rabbitmq = openstack.rabbitmq %}
