@@ -1,0 +1,16 @@
+centos7-1-iad:
+  - memcached.manfred.io
+  - rabbitmq.manfred.io
+
+centos7-2-iad:
+  - postgres.manfred.io
+  - keystone.manfred.io
+  - glance.manfred.io
+  - neutronapi.manfred.io
+
+centos7-4-iad:
+  - novaapi.manfred.io
+  - neutroncompute.manfred.io
+
+centos7-io-iad:
+  - novacompute01.manfred.io
