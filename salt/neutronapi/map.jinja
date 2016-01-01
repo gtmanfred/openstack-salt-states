@@ -1,4 +1,8 @@
 {% import_yaml "yamls/neutron/keystone.yaml" as keystone %}
+{% import_yaml "yamls/nova/keystone.yaml" as nova %}
+{% do keystone.keystone.users.update(nova.keystone.users) %}
+{% do keystone.keystone.services.extend(nova.keystone.services) %}
+{% do keystone.keystone.endpoints.extend(nova.keystone.endpoints) %}
 {% set keystone = salt['pillar.get']('keystone', default=keystone.keystone, merge=True) %}
 
 {% import_yaml "yamls/neutron/postgres.yaml" as postgres %}
