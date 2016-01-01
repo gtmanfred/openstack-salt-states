@@ -1,0 +1,29 @@
+==> /srv/pillar/ips.sls <==
+ips:
+  glance:
+    public: <glance api public ip>
+    private: <glance api private ip>
+  keystone:
+    public: <keystone api public ip>
+    private: <keystone api private ip>
+  novaapi:
+    public: <nova api public ip>
+    private: <nova api private ip>
+  neutronapi:
+    public: <neutron api public ip>
+    private: <neutron api private ip>
+
+==> /srv/pillar/keystone/token.sls <==
+{% import_yaml "ips.sls" as ips %}
+{%- set publicip = ips.ips.keystone.public %}
+{%- set privateip = ips.ips.keystone.private %}
+
+keystone.token: <token for admin>
+keystone.endpoint: http://{{privateip}}:35357/v2.0/
+
+==> /srv/pillar/top.sls <==
+base:
+  '*':
+    - ips
+  'keystone*':
+    - keystone.token
