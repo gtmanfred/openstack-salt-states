@@ -11,6 +11,10 @@ neutron config file:
         - source: salt://neutronapi/files/linuxbridge_agent.ini
       - /etc/neutron/metadata_agent.ini:
         - source: salt://neutronapi/files/metadata_agent.ini
+      - /etc/neutron/l3_agent.ini:
+        - source: salt://neutronapi/files/l3_agent.ini
+      - /etc/neutron/dnsmasq-neutron.conf:
+        - source: salt://neutronapi/files/dnsmasq-neutron.conf
     - user: neutron
     - group: neutron
     - mode: 640
