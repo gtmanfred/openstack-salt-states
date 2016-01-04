@@ -10,7 +10,6 @@ centos7-2-iad:
 
 centos7-4-iad:
   - novaapi.manfred.io
-  - neutroncompute.manfred.io
 
 centos7-8-iad:
   - novacompute01.manfred.io

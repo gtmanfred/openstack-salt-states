@@ -20,7 +20,6 @@ base:
     - novaapi
   'novacompute*':
     - novacompute
+    - neutroncompute
   'neutronapi*':
     - neutronapi
-  'neutroncompute*':
-    - neutroncompute
