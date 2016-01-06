@@ -2,11 +2,11 @@ neutron compute config file:
   file.managed:
     - names:
       - /etc/neutron/neutron.conf:
-        - source: salt://neutroncompute/files/neutron.conf
+        - source: salt://neutroncompute-linuxbridge/files/neutron.conf
       - /etc/neutron/plugins/ml2/linuxbridge_agent.ini:
-        - source: salt://neutroncompute/files/linuxbridge_agent.ini
+        - source: salt://neutroncompute-linuxbridge/files/linuxbridge_agent.ini
       - /etc/neutron/plugins/ml2/ml2_conf.ini:
-        - source: salt://neutroncompute/files/ml2_conf.ini
+        - source: salt://neutroncompute-linuxbridge/files/ml2_conf.ini
     - user: neutron
     - group: neutron
     - mode: 640
