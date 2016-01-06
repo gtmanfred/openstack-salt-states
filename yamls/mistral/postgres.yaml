@@ -1,0 +1,6 @@
+postgres:
+  users:
+    nova:
+      username: mistral
+      password: muDoquoo8Phie9E
+      db: mistral

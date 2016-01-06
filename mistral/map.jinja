@@ -1,0 +1,8 @@
+{% import_yaml "yamls/mistral/keystone.yaml" as keystone %}
+{% set keystone = salt['pillar.get']('keystone', default=keystone.keystone, merge=True) %}
+
+{% import_yaml "yamls/mistral/postgres.yaml" as postgres %}
+{% set postgres = salt['pillar.get']('postgres', default=postgres.postgres, merge=True) %}
+
+{% import_yaml "yamls/openstack/rabbitmq.yaml" as openstack %}
+{% set rabbitmq = salt['pillar.get']('rabbitmq', default=openstack.rabbitmq, merge=True) %}

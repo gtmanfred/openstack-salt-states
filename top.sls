@@ -23,3 +23,5 @@ base:
     - neutroncompute
   'neutronapi*':
     - neutronapi
+  'mistral*':
+    - mistral
