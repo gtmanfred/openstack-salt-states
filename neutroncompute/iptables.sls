@@ -13,3 +13,13 @@ neutron rule:
     - names:
       - neutron rule 1:
         - dport: 9696
+
+gateway rule:
+  iptables.append:
+    - table: filter
+    - chain: INPUT
+    - jump: ACCEPT
+    - match: state
+    - connstate: NEW
+    - in-interface: eth2
+    - save: True

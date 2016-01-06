@@ -9,6 +9,6 @@ memcached rule:
     - match: state
     - connstate: NEW
     - proto: tcp
-    - in-interface: eth2
+    - in-interface: eth1
     - dport: 11211
     - save: True

@@ -9,6 +9,6 @@ postgres rule:
     - match: state
     - connstate: NEW
     - proto: tcp
-    - in-interface: eth2
+    - in-interface: eth1
     - dport: 5432
     - save: True
