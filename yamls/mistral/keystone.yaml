@@ -1,18 +1,18 @@
-{%- set publicip = salt['config.get']('ips:mistralapi:public') %}
-{%- set privateip = salt['config.get']('ips:mistralapi:private') %}
+{%- set publicip = salt['config.get']('ips:mistral:public') %}
+{%- set privateip = salt['config.get']('ips:mistral:private') %}
 keystone:
   services:
     - name: mistral
       description: Openstack Workflow Service
       type: workflowv2
   endpoints:
-    - name: nova
+    - name: mistral
       region: RegionOne
-      publicurl: 'http://{{publicip}}:8989/v2.0'
-      internalurl: 'http://{{privateip}}:8989/v2.0'
-      adminurl: 'http://{{privateip}}:8774/v2.0'
+      publicurl: 'http://{{publicip}}:8989/v2'
+      internalurl: 'http://{{privateip}}:8989/v2'
+      adminurl: 'http://{{privateip}}:8989/v2'
   users:
-    nova:
+    mistral:
       name: mistral
       password: beSheephey9chee
       roles:

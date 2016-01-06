@@ -3,8 +3,10 @@
 {% import_yaml "yamls/neutron/postgres.yaml" as neutron %}
 {% import_yaml "yamls/keystone/postgres.yaml" as keystone %}
 {% import_yaml "yamls/glance/postgres.yaml" as glance %}
+{% import_yaml "yamls/mistral/postgres.yaml" as mistral %}
 {% do openstack.postgres.users.update(neutron.postgres.users) %}
 {% do openstack.postgres.users.update(nova.postgres.users) %}
 {% do openstack.postgres.users.update(keystone.postgres.users) %}
 {% do openstack.postgres.users.update(glance.postgres.users) %}
-{% set postgres = openstack['postgres'] %}
+{% do openstack.postgres.users.update(mistral.postgres.users) %}
+{% set postgres = salt['pillar.get']('postgres', default=openstack.postgres, merge=True) %}

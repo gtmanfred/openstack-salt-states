@@ -7,6 +7,7 @@ centos7-2-iad:
   - keystone.manfred.io
   - glance.manfred.io
   - neutronapi.manfred.io
+  - mistral.manfred.io
 
 centos7-4-iad:
   - novaapi.manfred.io

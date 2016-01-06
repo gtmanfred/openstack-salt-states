@@ -4,13 +4,26 @@ include:
 
 start mistral:
   file.managed:
-    - name: /etc/systemd/system/mistral.service
-    - source: salt://mistral/files/mistral.service
+    - names:
+      - /etc/systemd/system/mistral-api.service:
+        - source: salt://mistral/files/mistral-api.service
+      - /etc/systemd/system/mistral-engine.service:
+        - source: salt://mistral/files/mistral-engine.service
+      - /etc/systemd/system/mistral-executor.service:
+        - source: salt://mistral/files/mistral-executor.service
 
   service.running:
     - names: 
-      - mistral.service:
+      - mistral-api.service:
         - listen:
-          - files: mistral config file
+          - file: mistral config file
+          - git: mistral install
+      - mistral-engine.service:
+        - listen:
+          - file: mistral config file
+          - git: mistral install
+      - mistral-executor.service:
+        - listen:
+          - file: mistral config file
           - git: mistral install
     - enable: True

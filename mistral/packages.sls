@@ -12,8 +12,10 @@ mistral packages:
       - git
       - postgresql94-devel
 
-  pip.latest:
+  pip.installed:
     - name: psycopg2
+    - env_vars:
+        PATH: /usr/pgsql-9.4/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin
 
 mistral install:
   user.present:
@@ -24,9 +26,10 @@ mistral install:
 
   git.latest:
     - name: git://github.com/openstack/mistral.git
-    - target: /srv/mistral
+    - target: /srv/mistral/git
 
   pip.installed:
-    - name: mistral
-    - requirements: /srv/mistral/requirements.txt
-    - editable: /srv/mistral
+    - name: /srv/mistral/git
+    - requirements: /srv/mistral/git/requirements.txt
+    - editable: /srv/mistral/git
+    - unless: pip show mistral

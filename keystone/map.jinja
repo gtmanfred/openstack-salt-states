@@ -3,18 +3,22 @@
 {% import_yaml "yamls/nova/keystone.yaml" as nova %}
 {% import_yaml "yamls/neutron/keystone.yaml" as neutron %}
 {% import_yaml "yamls/glance/keystone.yaml" as glance %}
+{% import_yaml "yamls/mistral/keystone.yaml" as mistral %}
 {% do keystone.keystone.users.update(openstack.keystone.users) %}
 {% do keystone.keystone.users.update(neutron.keystone.users) %}
 {% do keystone.keystone.users.update(nova.keystone.users) %}
 {% do keystone.keystone.users.update(glance.keystone.users) %}
+{% do keystone.keystone.users.update(mistral.keystone.users) %}
 {% do keystone.keystone.endpoints.extend(openstack.keystone.endpoints) %}
 {% do keystone.keystone.endpoints.extend(neutron.keystone.endpoints) %}
 {% do keystone.keystone.endpoints.extend(nova.keystone.endpoints) %}
 {% do keystone.keystone.endpoints.extend(glance.keystone.endpoints) %}
+{% do keystone.keystone.endpoints.extend(mistral.keystone.endpoints) %}
 {% do keystone.keystone.services.extend(openstack.keystone.services) %}
 {% do keystone.keystone.services.extend(neutron.keystone.services) %}
 {% do keystone.keystone.services.extend(nova.keystone.services) %}
 {% do keystone.keystone.services.extend(glance.keystone.services) %}
+{% do keystone.keystone.services.extend(mistral.keystone.services) %}
 {% do keystone.keystone.tenants.extend(openstack.keystone.tenants) %}
 {% do keystone.keystone.roles.extend(openstack.keystone.roles) %}
 {% set keystone = salt['pillar.get']('keystone', default=keystone.keystone, merge=True) %}

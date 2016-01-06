@@ -1,0 +1,12 @@
+[Unit]
+Description=Openstack Workflow Engine Service
+
+[Service]
+Type=simple
+User=mistral
+Group=mistral
+
+ExecStart=/usr/bin/mistral-server --server engine --config-file /etc/mistral.conf
+
+[Install]
+WantedBy=multi-user.target

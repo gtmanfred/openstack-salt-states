@@ -1,11 +1,13 @@
-{%- if grains.get('glance', {}).get('sync_db', False) == False %}
-init glance db:
+{%- if grains.get('mistral', {}).get('sync_db', False) == False %}
+init mistral db:
   cmd.run:
-    - name: /usr/bin/glance-manage db_sync
-    - user: glance
+    - names:
+      - mistral-db-manage --config-file /etc/mistral.conf upgrade head
+      - mistral-db-manage --config-file /etc/mistral.conf populate
+    - user: mistral
 
   grains.present:
-    - name: glance
+    - name: mistral
     - value:
         sync_db: True
 {%- endif %}
