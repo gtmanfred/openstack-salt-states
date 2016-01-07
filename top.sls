@@ -20,8 +20,8 @@ base:
     - novaapi
   'novacompute*':
     - novacompute
-    - neutroncompute-linuxbridge
+    - neutroncompute
   'neutronapi*':
-    - neutronapi-linuxbridge
+    - neutronapi
   'mistral*':
     - mistral
