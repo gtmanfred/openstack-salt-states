@@ -11,6 +11,6 @@ keystone setup:
 
 everything else setup:
   salt.state:
-    - tgt: 'glance* or nova* or neutron*'
+    - tgt: 'glance* or nova* or neutron* or mistral*'
     - tgt_type: compound
     - highstate: True
