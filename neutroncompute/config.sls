@@ -3,10 +3,12 @@ neutron compute config file:
     - names:
       - /etc/neutron/neutron.conf:
         - source: salt://neutroncompute/files/neutron.conf
-      - /etc/neutron/plugins/ml2/linuxbridge_agent.ini:
-        - source: salt://neutroncompute/files/linuxbridge_agent.ini
       - /etc/neutron/plugins/ml2/ml2_conf.ini:
         - source: salt://neutroncompute/files/ml2_conf.ini
+      {%- if not salt['config.get']('neutron:mechanism:ovs') %}
+      - /etc/neutron/plugins/ml2/linuxbridge_agent.ini:
+        - source: salt://neutroncompute/files/linuxbridge_agent.ini
+      {%- endif %}
     - user: neutron
     - group: neutron
     - mode: 640

@@ -1,5 +1,6 @@
 include:
   - iptables
+  - iptables.drop
 
 nova rule:
   iptables.append:

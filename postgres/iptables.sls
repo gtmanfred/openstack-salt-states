@@ -1,5 +1,6 @@
 include:
   - iptables
+  - iptables.drop
 
 postgres rule:
   iptables.append:

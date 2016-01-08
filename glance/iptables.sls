@@ -1,5 +1,6 @@
 include:
   - iptables
+  - iptables.drop
 
 glance rule:
   iptables.append:

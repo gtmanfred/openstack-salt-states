@@ -1,6 +1,7 @@
 include:
   - openstack.sysctl
   - .iptables
+  - .network
   - .repos
   - .packages
   - .config

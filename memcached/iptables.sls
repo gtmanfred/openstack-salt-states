@@ -1,5 +1,6 @@
 include:
   - iptables
+  - iptables.drop
 
 memcached rule:
   iptables.append:

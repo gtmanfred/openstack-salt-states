@@ -1,11 +1,6 @@
 include:
   - .firewalld
 
-default to accept:
-  iptables.set_policy:
-    - chain: INPUT
-    - policy: DROP
-
 first rule:
   iptables.append:
     - table: filter

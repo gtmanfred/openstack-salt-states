@@ -3,8 +3,13 @@ include:
 
 start neutron:
   service.running:
-    - name: neutron-linuxbridge-agent.service
     - enable: True
     - listen:
-      - file: /etc/neutron/neutron.conf
-      - file: /etc/neutron/plugins/ml2/linuxbridge_agent.ini
+      - file: neutron compute config file
+    {%- if salt['config.get']('neutron:mechanism')  %}
+    - names:
+      - openvswitch.service
+      - neutron-openvswitch-agent.service
+    {%- else %}
+    - name: neutron-linuxbridge-agent.service
+    {%- endif %}

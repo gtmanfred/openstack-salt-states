@@ -1,5 +1,6 @@
 include:
   - iptables
+  - iptables.drop
 
 neutron rule:
   iptables.append:

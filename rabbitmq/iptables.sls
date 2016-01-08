@@ -1,5 +1,6 @@
 include:
   - iptables
+  - iptables.drop
 
 rabbitmq rule:
   iptables.append:

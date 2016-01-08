@@ -1,5 +1,6 @@
 include:
   - iptables
+  - iptables.drop
 
 mistral rule:
   iptables.append:

@@ -1,5 +1,6 @@
 include:
   - iptables
+  - iptables.drop
 
 keystone rule:
   iptables.append:

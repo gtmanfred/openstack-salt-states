@@ -1,5 +1,6 @@
 include:
   - iptables
+  - iptables.drop
 
 salt master rules:
   iptables.append:
