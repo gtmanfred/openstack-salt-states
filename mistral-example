@@ -1,0 +1,405 @@
+[root@salt ~]# cd /srv/salt
+[root@salt salt]# bash scripts/images
+[=============================>] 100%
++------------------+--------------------------------------+
+| Property         | Value                                |
++------------------+--------------------------------------+
+| checksum         | ee1eca47dc88f4879d8a229cc70a07c6     |
+| container_format | bare                                 |
+| created_at       | 2016-01-08T23:07:12Z                 |
+| disk_format      | qcow2                                |
+| id               | 84a4f281-f1ce-48b2-85bc-f831805a76e3 |
+| min_disk         | 0                                    |
+| min_ram          | 0                                    |
+| name             | cirros                               |
+| owner            | d8fcf23acf77488f98888bfebf36c36a     |
+| protected        | False                                |
+| size             | 13287936                             |
+| status           | active                               |
+| tags             | []                                   |
+| updated_at       | 2016-01-08T23:07:13Z                 |
+| virtual_size     | None                                 |
+| visibility       | public                               |
++------------------+--------------------------------------+
+[=============================>] 100%
++------------------+--------------------------------------+
+| Property         | Value                                |
++------------------+--------------------------------------+
+| checksum         | 117c6e62493f09ed2ba86043953dca20     |
+| container_format | bare                                 |
+| created_at       | 2016-01-08T23:07:13Z                 |
+| disk_format      | qcow2                                |
+| id               | d9b42315-28a8-4d16-a2c5-990e5209c474 |
+| min_disk         | 0                                    |
+| min_ram          | 0                                    |
+| name             | centos                               |
+| owner            | d8fcf23acf77488f98888bfebf36c36a     |
+| protected        | False                                |
+| size             | 899874816                            |
+| status           | active                               |
+| tags             | []                                   |
+| updated_at       | 2016-01-08T23:07:51Z                 |
+| virtual_size     | None                                 |
+| visibility       | public                               |
++------------------+--------------------------------------+
+[root@salt salt]# export EDITOR=vim
+[root@salt salt]# bash scripts/secgroup
+/usr/lib/python2.7/site-packages/novaclient/v1_1/__init__.py:30: UserWarning: Module novaclient.v1_1 is deprecated (taken as a basis for novaclient.v2). The preferable way to get client class or object you can find in novaclient.client module.
+  warnings.warn("Module novaclient.v1_1 is deprecated (taken as a basis for "
++-------------+-----------+---------+-----------+--------------+
+| IP Protocol | From Port | To Port | IP Range  | Source Group |
++-------------+-----------+---------+-----------+--------------+
+| icmp        | -1        | -1      | 0.0.0.0/0 |              |
++-------------+-----------+---------+-----------+--------------+
+/usr/lib/python2.7/site-packages/novaclient/v1_1/__init__.py:30: UserWarning: Module novaclient.v1_1 is deprecated (taken as a basis for novaclient.v2). The preferable way to get client class or object you can find in novaclient.client module.
+  warnings.warn("Module novaclient.v1_1 is deprecated (taken as a basis for "
++-------------+-----------+---------+-----------+--------------+
+| IP Protocol | From Port | To Port | IP Range  | Source Group |
++-------------+-----------+---------+-----------+--------------+
+| tcp         | 22        | 22      | 0.0.0.0/0 |              |
++-------------+-----------+---------+-----------+--------------+
+[root@salt salt]# bash scripts/net create
+Created a new network:
++---------------------------+--------------------------------------+
+| Field                     | Value                                |
++---------------------------+--------------------------------------+
+| admin_state_up            | True                                 |
+| id                        | cb8c8d36-3d87-48be-bccf-c209b4534b43 |
+| mtu                       | 0                                    |
+| name                      | public                               |
+| port_security_enabled     | True                                 |
+| provider:network_type     | flat                                 |
+| provider:physical_network | public                               |
+| provider:segmentation_id  |                                      |
+| router:external           | True                                 |
+| shared                    | True                                 |
+| status                    | ACTIVE                               |
+| subnets                   |                                      |
+| tenant_id                 | d8fcf23acf77488f98888bfebf36c36a     |
++---------------------------+--------------------------------------+
+Created a new subnet:
++-------------------+--------------------------------------------------+
+| Field             | Value                                            |
++-------------------+--------------------------------------------------+
+| allocation_pools  | {"start": "172.16.1.130", "end": "172.16.1.254"} |
+| cidr              | 172.16.1.128/25                                  |
+| dns_nameservers   |                                                  |
+| enable_dhcp       | False                                            |
+| gateway_ip        | 172.16.1.129                                     |
+| host_routes       |                                                  |
+| id                | a1b35974-8d4c-4da4-b9e2-f548500825e4             |
+| ip_version        | 4                                                |
+| ipv6_address_mode |                                                  |
+| ipv6_ra_mode      |                                                  |
+| name              | public                                           |
+| network_id        | cb8c8d36-3d87-48be-bccf-c209b4534b43             |
+| subnetpool_id     |                                                  |
+| tenant_id         | d8fcf23acf77488f98888bfebf36c36a                 |
++-------------------+--------------------------------------------------+
+Created a new network:
++-----------------------+--------------------------------------+
+| Field                 | Value                                |
++-----------------------+--------------------------------------+
+| admin_state_up        | True                                 |
+| id                    | f2eb4d56-7b4a-4cc4-b40e-f97444a62dfe |
+| mtu                   | 0                                    |
+| name                  | private                              |
+| port_security_enabled | True                                 |
+| router:external       | False                                |
+| shared                | False                                |
+| status                | ACTIVE                               |
+| subnets               |                                      |
+| tenant_id             | 7de7094009b944e3bc1884d431818e8e     |
++-----------------------+--------------------------------------+
+Created a new subnet:
++-------------------+--------------------------------------------------+
+| Field             | Value                                            |
++-------------------+--------------------------------------------------+
+| allocation_pools  | {"start": "192.168.0.2", "end": "192.168.0.254"} |
+| cidr              | 192.168.0.0/24                                   |
+| dns_nameservers   | 8.8.8.8                                          |
+| enable_dhcp       | True                                             |
+| gateway_ip        | 192.168.0.1                                      |
+| host_routes       |                                                  |
+| id                | 487f487d-42f1-4803-b90b-7f5ac2f3f9ad             |
+| ip_version        | 4                                                |
+| ipv6_address_mode |                                                  |
+| ipv6_ra_mode      |                                                  |
+| name              | private                                          |
+| network_id        | f2eb4d56-7b4a-4cc4-b40e-f97444a62dfe             |
+| subnetpool_id     |                                                  |
+| tenant_id         | 7de7094009b944e3bc1884d431818e8e                 |
++-------------------+--------------------------------------------------+
+Created a new router:
++-----------------------+--------------------------------------+
+| Field                 | Value                                |
++-----------------------+--------------------------------------+
+| admin_state_up        | True                                 |
+| external_gateway_info |                                      |
+| id                    | f9c2808b-a108-45e6-95c1-7bfa1d7c9ae0 |
+| name                  | router                               |
+| routes                |                                      |
+| status                | ACTIVE                               |
+| tenant_id             | 7de7094009b944e3bc1884d431818e8e     |
++-----------------------+--------------------------------------+
+Added interface 3688564f-d3f6-421e-b448-9035fab5c235 to router router.
+Set gateway for router router
+[root@salt salt]# export NET=f2eb4d56-7b4a-4cc4-b40e-f97444a62dfe
+[root@salt salt]# source demo-openrc.sh
+[root@salt salt]# nova keypair-add --pub ~/.ssh/demo.pub mykey
+/usr/lib/python2.7/site-packages/novaclient/v1_1/__init__.py:30: UserWarning: Module novaclient.v1_1 is deprecated (taken as a basis for novaclient.v2). The preferable way to get client class or object you can find in novaclient.client module.
+  warnings.warn("Module novaclient.v1_1 is deprecated (taken as a basis for "
+[root@salt salt]# bash scripts/boot cirros
+/usr/lib/python2.7/site-packages/novaclient/v1_1/__init__.py:30: UserWarning: Module novaclient.v1_1 is deprecated (taken as a basis for novaclient.v2). The preferable way to get client class or object you can find in novaclient.client module.
+  warnings.warn("Module novaclient.v1_1 is deprecated (taken as a basis for "
++--------------------------------------+-----------------------------------------------+
+| Property                             | Value                                         |
++--------------------------------------+-----------------------------------------------+
+| OS-DCF:diskConfig                    | MANUAL                                        |
+| OS-EXT-AZ:availability_zone          |                                               |
+| OS-EXT-STS:power_state               | 0                                             |
+| OS-EXT-STS:task_state                | scheduling                                    |
+| OS-EXT-STS:vm_state                  | building                                      |
+| OS-SRV-USG:launched_at               | -                                             |
+| OS-SRV-USG:terminated_at             | -                                             |
+| accessIPv4                           |                                               |
+| accessIPv6                           |                                               |
+| adminPass                            | xfV9aDnSezCo                                  |
+| config_drive                         | True                                          |
+| created                              | 2016-01-08T23:09:54Z                          |
+| flavor                               | m1.tiny (1)                                   |
+| hostId                               |                                               |
+| id                                   | 5d03c558-a2f0-4902-ab6d-551138089194          |
+| image                                | cirros (84a4f281-f1ce-48b2-85bc-f831805a76e3) |
+| key_name                             | mykey                                         |
+| metadata                             | {}                                            |
+| name                                 | cirros1                                       |
+| os-extended-volumes:volumes_attached | []                                            |
+| progress                             | 0                                             |
+| security_groups                      | default                                       |
+| status                               | BUILD                                         |
+| tenant_id                            | 7de7094009b944e3bc1884d431818e8e              |
+| updated                              | 2016-01-08T23:09:54Z                          |
+| user_id                              | 75d151a2272041c1908ffeec78eda089              |
++--------------------------------------+-----------------------------------------------+
+/usr/lib/python2.7/site-packages/novaclient/v1_1/__init__.py:30: UserWarning: Module novaclient.v1_1 is deprecated (taken as a basis for novaclient.v2). The preferable way to get client class or object you can find in novaclient.client module.
+  warnings.warn("Module novaclient.v1_1 is deprecated (taken as a basis for "
++--------------------------------------+-----------------------------------------------+
+| Property                             | Value                                         |
++--------------------------------------+-----------------------------------------------+
+| OS-DCF:diskConfig                    | MANUAL                                        |
+| OS-EXT-AZ:availability_zone          |                                               |
+| OS-EXT-STS:power_state               | 0                                             |
+| OS-EXT-STS:task_state                | scheduling                                    |
+| OS-EXT-STS:vm_state                  | building                                      |
+| OS-SRV-USG:launched_at               | -                                             |
+| OS-SRV-USG:terminated_at             | -                                             |
+| accessIPv4                           |                                               |
+| accessIPv6                           |                                               |
+| adminPass                            | X3eYDimX5cYJ                                  |
+| config_drive                         | True                                          |
+| created                              | 2016-01-08T23:09:55Z                          |
+| flavor                               | m1.tiny (1)                                   |
+| hostId                               |                                               |
+| id                                   | 7c890674-a08c-4382-bd2b-7b497f86f1bf          |
+| image                                | cirros (84a4f281-f1ce-48b2-85bc-f831805a76e3) |
+| key_name                             | mykey                                         |
+| metadata                             | {}                                            |
+| name                                 | cirros2                                       |
+| os-extended-volumes:volumes_attached | []                                            |
+| progress                             | 0                                             |
+| security_groups                      | default                                       |
+| status                               | BUILD                                         |
+| tenant_id                            | 7de7094009b944e3bc1884d431818e8e              |
+| updated                              | 2016-01-08T23:09:55Z                          |
+| user_id                              | 75d151a2272041c1908ffeec78eda089              |
++--------------------------------------+-----------------------------------------------+
+/usr/lib/python2.7/site-packages/novaclient/v1_1/__init__.py:30: UserWarning: Module novaclient.v1_1 is deprecated (taken as a basis for novaclient.v2). The preferable way to get client class or object you can find in novaclient.client module.
+  warnings.warn("Module novaclient.v1_1 is deprecated (taken as a basis for "
++--------------------------------------+-----------------------------------------------+
+| Property                             | Value                                         |
++--------------------------------------+-----------------------------------------------+
+| OS-DCF:diskConfig                    | MANUAL                                        |
+| OS-EXT-AZ:availability_zone          |                                               |
+| OS-EXT-STS:power_state               | 0                                             |
+| OS-EXT-STS:task_state                | scheduling                                    |
+| OS-EXT-STS:vm_state                  | building                                      |
+| OS-SRV-USG:launched_at               | -                                             |
+| OS-SRV-USG:terminated_at             | -                                             |
+| accessIPv4                           |                                               |
+| accessIPv6                           |                                               |
+| adminPass                            | z7rSNrgiyCqT                                  |
+| config_drive                         | True                                          |
+| created                              | 2016-01-08T23:09:57Z                          |
+| flavor                               | m1.tiny (1)                                   |
+| hostId                               |                                               |
+| id                                   | 8d2f0917-15f8-418d-98b6-d74ac2477013          |
+| image                                | cirros (84a4f281-f1ce-48b2-85bc-f831805a76e3) |
+| key_name                             | mykey                                         |
+| metadata                             | {}                                            |
+| name                                 | cirros3                                       |
+| os-extended-volumes:volumes_attached | []                                            |
+| progress                             | 0                                             |
+| security_groups                      | default                                       |
+| status                               | BUILD                                         |
+| tenant_id                            | 7de7094009b944e3bc1884d431818e8e              |
+| updated                              | 2016-01-08T23:09:57Z                          |
+| user_id                              | 75d151a2272041c1908ffeec78eda089              |
++--------------------------------------+-----------------------------------------------+
+[root@salt salt]# nova list
+/usr/lib/python2.7/site-packages/novaclient/v1_1/__init__.py:30: UserWarning: Module novaclient.v1_1 is deprecated (taken as a basis for novaclient.v2). The preferable way to get client class or object you can find in novaclient.client module.
+  warnings.warn("Module novaclient.v1_1 is deprecated (taken as a basis for "
++--------------------------------------+---------+--------+------------+-------------+---------------------+
+| ID                                   | Name    | Status | Task State | Power State | Networks            |
++--------------------------------------+---------+--------+------------+-------------+---------------------+
+| 5d03c558-a2f0-4902-ab6d-551138089194 | cirros1 | ACTIVE | -          | Running     | private=192.168.0.3 |
+| 7c890674-a08c-4382-bd2b-7b497f86f1bf | cirros2 | ACTIVE | -          | Running     | private=192.168.0.4 |
+| 8d2f0917-15f8-418d-98b6-d74ac2477013 | cirros3 | ACTIVE | -          | Running     | private=192.168.0.5 |
++--------------------------------------+---------+--------+------------+-------------+---------------------+
+[root@salt salt]# neutron floatingip-create public
+Created a new floatingip:
++---------------------+--------------------------------------+
+| Field               | Value                                |
++---------------------+--------------------------------------+
+| fixed_ip_address    |                                      |
+| floating_ip_address | 172.16.1.131                         |
+| floating_network_id | cb8c8d36-3d87-48be-bccf-c209b4534b43 |
+| id                  | c5332267-298a-497c-88a0-9bc1cd00ed0f |
+| port_id             |                                      |
+| router_id           |                                      |
+| status              | DOWN                                 |
+| tenant_id           | 7de7094009b944e3bc1884d431818e8e     |
++---------------------+--------------------------------------+
+[root@salt salt]# neutron floatingip-create public
+Created a new floatingip:
++---------------------+--------------------------------------+
+| Field               | Value                                |
++---------------------+--------------------------------------+
+| fixed_ip_address    |                                      |
+| floating_ip_address | 172.16.1.132                         |
+| floating_network_id | cb8c8d36-3d87-48be-bccf-c209b4534b43 |
+| id                  | bcb28e77-a9ea-4aa9-9131-ed04a8a99fb2 |
+| port_id             |                                      |
+| router_id           |                                      |
+| status              | DOWN                                 |
+| tenant_id           | 7de7094009b944e3bc1884d431818e8e     |
++---------------------+--------------------------------------+
+[root@salt salt]# neutron floatingip-create public
+Created a new floatingip:
++---------------------+--------------------------------------+
+| Field               | Value                                |
++---------------------+--------------------------------------+
+| fixed_ip_address    |                                      |
+| floating_ip_address | 172.16.1.133                         |
+| floating_network_id | cb8c8d36-3d87-48be-bccf-c209b4534b43 |
+| id                  | a5c4d7c6-a4e0-4493-a78d-0c19b4682612 |
+| port_id             |                                      |
+| router_id           |                                      |
+| status              | DOWN                                 |
+| tenant_id           | 7de7094009b944e3bc1884d431818e8e     |
++---------------------+--------------------------------------+
+[root@salt salt]# nova floating-ip-associate cirros1 172.16.1.131
+/usr/lib/python2.7/site-packages/novaclient/v1_1/__init__.py:30: UserWarning: Module novaclient.v1_1 is deprecated (taken as a basis for novaclient.v2). The preferable way to get client class or object you can find in novaclient.client module.
+  warnings.warn("Module novaclient.v1_1 is deprecated (taken as a basis for "
+[root@salt salt]# nova list
+/usr/lib/python2.7/site-packages/novaclient/v1_1/__init__.py:30: UserWarning: Module novaclient.v1_1 is deprecated (taken as a basis for novaclient.v2). The preferable way to get client class or object you can find in novaclient.client module.
+  warnings.warn("Module novaclient.v1_1 is deprecated (taken as a basis for "
++--------------------------------------+---------+--------+------------+-------------+-----------------------------------+
+| ID                                   | Name    | Status | Task State | Power State | Networks                          |
++--------------------------------------+---------+--------+------------+-------------+-----------------------------------+
+| 5d03c558-a2f0-4902-ab6d-551138089194 | cirros1 | ACTIVE | -          | Running     | private=192.168.0.3, 172.16.1.131 |
+| 7c890674-a08c-4382-bd2b-7b497f86f1bf | cirros2 | ACTIVE | -          | Running     | private=192.168.0.4               |
+| 8d2f0917-15f8-418d-98b6-d74ac2477013 | cirros3 | ACTIVE | -          | Running     | private=192.168.0.5               |
++--------------------------------------+---------+--------+------------+-------------+-----------------------------------+
+[root@salt salt]# for n in 1 2 3; do nova delete cirros$n; done
+/usr/lib/python2.7/site-packages/novaclient/v1_1/__init__.py:30: UserWarning: Module novaclient.v1_1 is deprecated (taken as a basis for novaclient.v2). The preferable way to get client class or object you can find in novaclient.client module.
+  warnings.warn("Module novaclient.v1_1 is deprecated (taken as a basis for "
+Request to delete server cirros1 has been accepted.
+/usr/lib/python2.7/site-packages/novaclient/v1_1/__init__.py:30: UserWarning: Module novaclient.v1_1 is deprecated (taken as a basis for novaclient.v2). The preferable way to get client class or object you can find in novaclient.client module.
+  warnings.warn("Module novaclient.v1_1 is deprecated (taken as a basis for "
+Request to delete server cirros2 has been accepted.
+/usr/lib/python2.7/site-packages/novaclient/v1_1/__init__.py:30: UserWarning: Module novaclient.v1_1 is deprecated (taken as a basis for novaclient.v2). The preferable way to get client class or object you can find in novaclient.client module.
+  warnings.warn("Module novaclient.v1_1 is deprecated (taken as a basis for "
+Request to delete server cirros3 has been accepted.
+[root@salt salt]# source admin-openrc.sh
+[root@salt salt]# openstack action definition update mistral/workflows/wait_ssh.yml
++--------------+-----------+------------------------------+---------------------+--------+----------------------------+------------+
+| Name         | Is system | Input                        | Description         | Tags   | Created at                 | Updated at |
++--------------+-----------+------------------------------+---------------------+--------+----------------------------+------------+
+| std.wait_ssh | False     | host, username, password=... | Simple SSH command. | <none> | 2016-01-08 23:11:42.048381 | None       |
++--------------+-----------+------------------------------+---------------------+--------+----------------------------+------------+
+[root@salt salt]# openstack workflow create mistral/workflows/instance.yml
++--------------------------------------+-----------------+----------------------------------+--------+------------------------------+----------------------------+------------+
+| ID                                   | Name            | Project ID                       | Tags   | Input                        | Created at                 | Updated at |
++--------------------------------------+-----------------+----------------------------------+--------+------------------------------+----------------------------+------------+
+| c15a64e4-e31a-4bbb-ac7c-23e59e8f9e5c | std.ping_ipaddr | d8fcf23acf77488f98888bfebf36c36a | <none> | name, image_id, flavor_id... | 2016-01-08 23:12:28.725687 | None       |
++--------------------------------------+-----------------+----------------------------------+--------+------------------------------+----------------------------+------------+
+[root@salt salt]# openstack workflow execution create std.ping_ipaddr '{
+    "name": "mistraltest.gtmanfred.com",
+    "image_id": "d9b42315-28a8-4d16-a2c5-990e5209c474",
+    "flavor_id": "2",
+    "ssh_username": "centos",
+    "ssh_keyfile": "demo",
+    "key_name": "mykey",
+    "security_groups": ["default"],
+    "nics": [{"net-id": "f2eb4d56-7b4a-4cc4-b40e-f97444a62dfe"}]
+}'
++-------------+--------------------------------------+
+| Field       | Value                                |
++-------------+--------------------------------------+
+| ID          | 7bad1126-3127-4a8a-aa39-086aa86eb3e8 |
+| Workflow    | std.ping_ipaddr                      |
+| Description |                                      |
+| State       | RUNNING                              |
+| State info  | None                                 |
+| Created at  | 2016-01-08 23:28:43.418955           |
+| Updated at  | 2016-01-08 23:28:43.422133           |
++-------------+--------------------------------------+
+[root@salt salt]# openstack workflow execution show 7bad1126-3127-4a8a-aa39-086aa86eb3e8
++-------------+--------------------------------------+
+| Field       | Value                                |
++-------------+--------------------------------------+
+| ID          | 7bad1126-3127-4a8a-aa39-086aa86eb3e8 |
+| Workflow    | std.ping_ipaddr                      |
+| Description |                                      |
+| State       | SUCCESS                              |
+| State info  | None                                 |
+| Created at  | 2016-01-08 23:28:43.418955           |
+| Updated at  | 2016-01-08 23:34:00.368839           |
++-------------+--------------------------------------+
+[root@salt salt]# nova list
+/usr/lib/python2.7/site-packages/novaclient/v1_1/__init__.py:30: UserWarning: Module novaclient.v1_1 is deprecated (taken as a basis for novaclient.v2). The preferable way to get client class or object you can find in novaclient.client module.
+  warnings.warn("Module novaclient.v1_1 is deprecated (taken as a basis for "
+  +--------------------------------------+---------------------------+--------+------------+-------------+-----------------------------------+
+  | ID                                   | Name                      | Status | Task State | Power State | Networks                          |
+  +--------------------------------------+---------------------------+--------+------------+-------------+-----------------------------------+
+  | 8e3e0632-db87-4c94-88fb-f7015815ce99 | mistraltest.gtmanfred.com | ACTIVE | -          | Running     | private=192.168.0.3, 172.16.1.131 |
+  +--------------------------------------+---------------------------+--------+------------+-------------+-----------------------------------+
+[root@salt salt]# mistral task-list
++--------------------------------------+----------------+---------------------+--------------------------------------+---------+------------------------------+
+| ID                                   | Name           | Workflow name       | Execution ID                         | State   | State info                   |
++--------------------------------------+----------------+---------------------+--------------------------------------+---------+------------------------------+
+| 0a35f55d-c79e-4f7e-b714-9b7aa9a3bd35 | create_vm      | std.ping_ipaddr     | 7bad1126-3127-4a8a-aa39-086aa86eb3e8 | SUCCESS | None                         |
+| 24f292d1-9e21-4fb1-8e31-0e6a1075f0ca | search_for_ip  | std.ping_ipaddr     | 7bad1126-3127-4a8a-aa39-086aa86eb3e8 | SUCCESS | None                         |
+| 6f2f6091-f653-46bf-b58a-4839c8d9b5ad | wait_vm_active | std.ping_ipaddr     | 7bad1126-3127-4a8a-aa39-086aa86eb3e8 | SUCCESS | None                         |
+| 12d9cb6f-5104-4e6f-a39d-c04da678af21 | associate_ip   | std.ping_ipaddr     | 7bad1126-3127-4a8a-aa39-086aa86eb3e8 | SUCCESS | None                         |
+| 2dc95108-926a-4d33-ad33-bfe12a8a515e | wait_ssh       | std.ping_ipaddr     | 7bad1126-3127-4a8a-aa39-086aa86eb3e8 | SUCCESS | None                         |
+| 2e6fbc25-b2b6-4398-8a94-98a5c8b3b5cc | ping_home      | std.ping_ipaddr     | 7bad1126-3127-4a8a-aa39-086aa86eb3e8 | SUCCESS | None                         |
++--------------------------------------+----------------+---------------------+--------------------------------------+---------+------------------------------+
+[root@salt salt]# echo -e $(mistral task-get-result 2e6fbc25-b2b6-4398-8a94-98a5c8b3b5cc)
+"PING 192.168.0.2 (192.168.0.2) 56(84) bytes of data.
+64 bytes from 192.168.0.2: icmp_seq=1 ttl=64 time=8.81 ms
+64 bytes from 192.168.0.2: icmp_seq=2 ttl=64 time=1.34 ms
+64 bytes from 192.168.0.2: icmp_seq=3 ttl=64 time=1.31 ms
+64 bytes from 192.168.0.2: icmp_seq=4 ttl=64 time=1.27 ms
+64 bytes from 192.168.0.2: icmp_seq=5 ttl=64 time=1.41 ms
+64 bytes from 192.168.0.2: icmp_seq=6 ttl=64 time=2.10 ms
+64 bytes from 192.168.0.2: icmp_seq=7 ttl=64 time=1.33 ms
+64 bytes from 192.168.0.2: icmp_seq=8 ttl=64 time=1.30 ms
+64 bytes from 192.168.0.2: icmp_seq=9 ttl=64 time=1.33 ms
+64 bytes from 192.168.0.2: icmp_seq=10 ttl=64 time=1.81 ms
+
+--- 192.168.0.2 ping statistics ---
+10 packets transmitted, 10 received, 0% packet loss, time 9068ms
+rtt min/avg/max/mdev = 1.274/2.205/8.810/2.216 ms
+"

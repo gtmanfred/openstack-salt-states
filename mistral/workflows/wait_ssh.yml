@@ -1,0 +1,18 @@
+---
+version: '2.0'
+# openstack action definition update mistral/workflows/wait_ssh.yml
+
+std.wait_ssh:
+    description: Simple SSH command.
+    base: std.ssh
+    base-input:
+      host: <% $.host %>
+      username: <% $.username %>
+      password: <% $.password %>
+      private_key_filename: <% $.private_key_filename %>
+      cmd: 'ls -l'
+    input:
+     - host
+     - username
+     - password: null
+     - private_key_filename: null

@@ -1,5 +1,14 @@
 source /srv/salt/demo-openrc.sh
-NET=<uuid>
-nova boot --flavor m1.tiny --image cirros --nic net-id=$NET --security-group default --key-name mykey cirros1
-nova boot --flavor m1.tiny --image cirros --nic net-id=$NET --security-group default --key-name mykey cirros2
-nova boot --flavor m1.tiny --image cirros --nic net-id=$NET --security-group default --key-name mykey cirros3
+[[ -z $NET ]] && exit
+case $1 in
+  cirros)
+    for n in 1 2 3; do
+      nova boot --config-drive=True --user-data /user-data.yml --flavor m1.tiny --image cirros --nic net-id=$NET --security-group default --key-name mykey cirros$n
+    done
+    ;;
+  centos)
+    for n in 1 2 3; do
+      nova boot --config-drive=True --flavor m1.small --image centos --nic net-id=$NET --security-group default --key-name mykey centos$n
+    done
+    ;;
+esac
