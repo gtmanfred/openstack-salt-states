@@ -1,0 +1,5 @@
+source /srv/salt/demo-openrc.sh
+NET=<uuid>
+nova boot --flavor m1.tiny --image cirros --nic net-id=$NET --security-group default --key-name mykey cirros1
+nova boot --flavor m1.tiny --image cirros --nic net-id=$NET --security-group default --key-name mykey cirros2
+nova boot --flavor m1.tiny --image cirros --nic net-id=$NET --security-group default --key-name mykey cirros3
