@@ -5,6 +5,7 @@ base:
     - repos
     #- packages.updated
   'salt*':
+    - networks.natroutes
     - iptables.salt-master
   'postgres*':
     - postgres
