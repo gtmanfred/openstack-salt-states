@@ -7,6 +7,7 @@ base:
   'salt*':
     - networks.natroutes
     - iptables.salt-master
+    - repos.docker
   'postgres*':
     - postgres
   'memcached*':
@@ -21,6 +22,9 @@ base:
     - novaapi
   'novacompute*':
     - novacompute
+    - neutroncompute
+  'novadocker*':
+    - novadocker
     - neutroncompute
   'neutronapi*':
     - neutronapi

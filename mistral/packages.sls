@@ -32,4 +32,5 @@ mistral install:
     - name: /srv/mistral/git
     - requirements: /srv/mistral/git/requirements.txt
     - editable: /srv/mistral/git
-    - unless: pip show mistral
+    - onchanges:
+      - git: mistral install
