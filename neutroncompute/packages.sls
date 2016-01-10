@@ -1,3 +1,6 @@
+include:
+  - .repos
+
 neutron packages:
   pkg.latest:
     - pkgs:

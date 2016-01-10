@@ -1,3 +1,6 @@
+include:
+  - .repos
+
 keystone packages:
   pkg.latest:
     - pkgs:

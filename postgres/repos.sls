@@ -1,3 +1,6 @@
+include:
+  - .repos
+
 postgres repo:
   pkgrepo.managed:
     - name: pgdg94

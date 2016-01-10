@@ -1,3 +1,6 @@
+include:
+  - .repos
+
 mistral packages:
   pkg.latest:
     - pkgs:

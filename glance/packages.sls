@@ -1,3 +1,6 @@
+include:
+  - .repos
+
 glance packages:
   pkg.latest:
     - pkgs:

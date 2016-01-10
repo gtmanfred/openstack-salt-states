@@ -1,3 +1,6 @@
+include:
+  - .repos
+
 nova packages:
   pkg.latest:
     - pkgs:
