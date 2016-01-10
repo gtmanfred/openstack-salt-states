@@ -34,3 +34,5 @@ base:
     - horizon
   'cinderapi*':
     - cinderapi
+  'cindernode*':
+    - cindernode

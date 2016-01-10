@@ -2,7 +2,7 @@ include:
   - iptables
   - iptables.drop
 
-cinder api rule:
+cinder node rule:
   iptables.append:
     - table: filter
     - chain: INPUT
@@ -10,7 +10,8 @@ cinder api rule:
     - match: state
     - connstate: NEW
     - proto: tcp
+    - in-interface: eth1
     - save: True
     - names:
       - cinder rule 1:
-        - dport: 8776
+        - dport: 3260
