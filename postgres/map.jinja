@@ -4,9 +4,11 @@
 {% import_yaml "yamls/keystone/postgres.yaml" as keystone %}
 {% import_yaml "yamls/glance/postgres.yaml" as glance %}
 {% import_yaml "yamls/mistral/postgres.yaml" as mistral %}
+{% import_yaml "yamls/cinder/postgres.yaml" as cinder %}
 {% do openstack.postgres.users.update(neutron.postgres.users) %}
 {% do openstack.postgres.users.update(nova.postgres.users) %}
 {% do openstack.postgres.users.update(keystone.postgres.users) %}
 {% do openstack.postgres.users.update(glance.postgres.users) %}
 {% do openstack.postgres.users.update(mistral.postgres.users) %}
+{% do openstack.postgres.users.update(cinder.postgres.users) %}
 {% set postgres = salt['pillar.get']('postgres', default=openstack.postgres, merge=True) %}

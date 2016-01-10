@@ -9,6 +9,7 @@ centos7-2-iad:
   - neutronapi.manfred.io
   - mistral.manfred.io
   - horizon.manfred.io
+  - cinderapi.manfred.io
 
 centos7-4-iad:
   - novaapi.manfred.io

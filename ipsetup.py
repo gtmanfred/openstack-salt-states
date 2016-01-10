@@ -27,6 +27,10 @@ ips = {
             'public': ifs['mistral.manfred.io']['eth0']['inet'][0]['address'],
             'private': ifs['mistral.manfred.io']['eth1']['inet'][0]['address'],
         },
+        'cinder': {
+            'public': ifs['cinderapi.manfred.io']['eth0']['inet'][0]['address'],
+            'private': ifs['cinderapi.manfred.io']['eth1']['inet'][0]['address'],
+        },
     }
 }
 

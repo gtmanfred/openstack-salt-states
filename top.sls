@@ -32,3 +32,5 @@ base:
     - mistral
   'horizon*':
     - horizon
+  'cinderapi*':
+    - cinderapi
