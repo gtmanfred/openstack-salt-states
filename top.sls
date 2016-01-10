@@ -30,3 +30,5 @@ base:
     - neutronapi
   'mistral*':
     - mistral
+  'horizon*':
+    - horizon
