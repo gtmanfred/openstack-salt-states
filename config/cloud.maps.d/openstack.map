@@ -18,9 +18,6 @@ centos7-8-iad:
   - novacompute01.manfred.io
   - novacompute02.manfred.io
   - novacompute03.manfred.io
-  - novadocker01.manfred.io
-  - novadocker02.manfred.io
-  - novadocker03.manfred.io
 
 centos7-30-iad:
   - cindernode01.manfred.io
