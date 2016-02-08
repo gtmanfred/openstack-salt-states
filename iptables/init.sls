@@ -10,6 +10,16 @@ first rule:
     - connstate: ESTABLISHED,RELATED
     - save: True
 
+icmp rule:
+  iptables.append:
+    - table: filter
+    - chain: INPUT
+    - jump: ACCEPT
+    - match: state
+    - connstate: NEW
+    - proto: icmp
+    - save: True
+
 loopback rule:
   iptables.append:
     - table: filter
@@ -21,14 +31,15 @@ loopback rule:
     - in-interface: lo
     - save: True
 
-icmp rule:
+eth1 rule:
   iptables.append:
     - table: filter
     - chain: INPUT
     - jump: ACCEPT
     - match: state
     - connstate: NEW
-    - proto: icmp
+    - proto: tcp
+    - in-interface: eth1
     - save: True
 
 ssh rule:

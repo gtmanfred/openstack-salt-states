@@ -8,28 +8,28 @@ ifs = yaml.load(sys.stdin)
 ips = {
     'ips': {
         'glance': {
-            'public': ifs['glance.manfred.io']['eth0']['inet'][0]['address'],
-            'private': ifs['glance.manfred.io']['eth1']['inet'][0]['address'],
+            'public': ifs.get('glance.manfred.io', {}).get('eth0', {}).get('inet', [{}])[0].get('address', 'localhost'),
+            'private': ifs.get('glance.manfred.io', {}).get('eth1', {}).get('inet', [{}])[0].get('address', 'localhost'),
         },
         'keystone': {
-            'public': ifs['keystone.manfred.io']['eth0']['inet'][0]['address'],
-            'private': ifs['keystone.manfred.io']['eth1']['inet'][0]['address'],
+            'public': ifs.get('keystone.manfred.io', {}).get('eth0', {}).get('inet', [{}])[0].get('address', 'localhost'),
+            'private': ifs.get('keystone.manfred.io', {}).get('eth1', {}).get('inet', [{}])[0].get('address', 'localhost'),
         },
         'novaapi': {
-            'public': ifs['novaapi.manfred.io']['eth0']['inet'][0]['address'],
-            'private': ifs['novaapi.manfred.io']['eth1']['inet'][0]['address'],
+            'public': ifs.get('novaapi.manfred.io', {}).get('eth0', {}).get('inet', [{}])[0].get('address', 'localhost'),
+            'private': ifs.get('novaapi.manfred.io', {}).get('eth1', {}).get('inet', [{}])[0].get('address', 'localhost'),
         },
         'neutronapi': {
-            'public': ifs['neutronapi.manfred.io']['eth0']['inet'][0]['address'],
-            'private': ifs['neutronapi.manfred.io']['eth1']['inet'][0]['address'],
+            'public': ifs.get('neutronapi.manfred.io', {}).get('eth0', {}).get('inet', [{}])[0].get('address', 'localhost'),
+            'private': ifs.get('neutronapi.manfred.io', {}).get('eth1', {}).get('inet', [{}])[0].get('address', 'localhost'),
         },
         'mistral': {
-            'public': ifs['mistral.manfred.io']['eth0']['inet'][0]['address'],
-            'private': ifs['mistral.manfred.io']['eth1']['inet'][0]['address'],
+            'public': ifs.get('mistral.manfred.io', {}).get('eth0', {}).get('inet', [{}])[0].get('address', 'localhost'),
+            'private': ifs.get('mistral.manfred.io', {}).get('eth1', {}).get('inet', [{}])[0].get('address', 'localhost'),
         },
         'cinder': {
-            'public': ifs['cinderapi.manfred.io']['eth0']['inet'][0]['address'],
-            'private': ifs['cinderapi.manfred.io']['eth1']['inet'][0]['address'],
+            'public': ifs.get('cinderapi.manfred.io', {}).get('eth0', {}).get('inet', [{}])[0].get('address', 'localhost'),
+            'private': ifs.get('cinderapi.manfred.io', {}).get('eth1', {}).get('inet', [{}])[0].get('address', 'localhost'),
         },
     }
 }

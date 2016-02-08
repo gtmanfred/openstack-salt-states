@@ -38,6 +38,9 @@ std.vm_update:
     # Example: nics: [{"net-id": "27aa8c1c-d6b8-4474-b7f7-6cdcf63ac856"}]
     - nics: null
 
+    # User data
+    - userdata: null
+
   task-defaults:
     on-error:
       - delete_vm
@@ -56,6 +59,8 @@ std.vm_update:
         key_name: <% $.key_name %>
         security_groups: <% $.security_groups %>
         nics: <% $.nics %>
+        userdata: <% $.userdata %>
+        config_drive: True
       publish:
         vm_id: <% $.create_vm.id %>
       on-success:
@@ -91,13 +96,16 @@ std.vm_update:
       description: Wait till operating system on the VM is up (SSH command).
       action: std.wait_ssh username=<% $.ssh_username %> password=<% $.ssh_password %> private_key_filename=<% $.ssh_keyfile %> host=<% $.vm_ip %>
       retry:
-        count: 20
+        count: 10
         delay: 30
       on-success:
         - update_vm
 
     update_vm:
       action: std.ssh cmd="sudo yum update -y" host=<% $.vm_ip %> username=<% $.ssh_username %> password=<% $.ssh_password %> private_key_filename=<% $.ssh_keyfile %>
+      retry:
+        count: 10
+        delay: 30
 
     delete_vm:
       description: Destroy VM.

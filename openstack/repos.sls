@@ -3,5 +3,5 @@ openstack liberty repo:
     - name: openstack-liberty
     - humanname: OpenStack Liberty Repository
     - gpgcheck: 1
-    - baseurl: http://mirror.centos.org/centos/7/cloud/$basearch/openstack-liberty/
+    - baseurl: http://mirror.rackspace.com/CentOS/7/cloud/$basearch/openstack-liberty/
     - gpgkey: https://raw.githubusercontent.com/redhat-openstack/rdo-release/master/RPM-GPG-KEY-CentOS-SIG-Cloud
