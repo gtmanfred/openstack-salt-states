@@ -1,3 +1,10 @@
+ips setup:
+  salt.function:
+    - tgt: 'salt*'
+    - name: publish.runner
+    - kwarg:
+        fun: setup.ips
+
 database setup:
   salt.state:
     - tgt: 'postgres* or memcached* or rabbitmq*'
