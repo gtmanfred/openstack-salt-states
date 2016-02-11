@@ -1,4 +1,4 @@
-{%- set networks = salt['publish.publish']('*.manfred.io', 'network.ip_addrs', arg=['cidr=172.16.0.0/24']) %}
+{%- set networks = salt['mine.get']('*.manfred.io', 'openstack_ips') %}
 {%- for host, ips in networks.iteritems() %}
 {{host}}_eth1:
   host.present:

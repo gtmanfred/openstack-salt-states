@@ -21,9 +21,17 @@ ips:
 keystone.token: <token for admin>
 keystone.endpoint: http://{{privateip}}:35357/v2.0/
 
+==> /srv/pillar/mine.sls <==
+# This one is required
+mine_functions:
+  openstack_ips:
+    mine_function: network.ip_addrs
+    cidr: 172.16.0.0/24
+
 ==> /srv/pillar/top.sls <==
 base:
   '*':
     - ips
+    - mine
   'keystone*':
     - keystone.token
