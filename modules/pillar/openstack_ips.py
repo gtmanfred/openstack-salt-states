@@ -3,20 +3,17 @@ Run salt \* network.interfaces --out yaml | python ipsetup.py
 """
 import logging
 import pprint
-from salt.config import master_config
-from salt.runner import RunnerClient
-import yaml
 
 log = logging.getLogger(__name__)
 
 
-def ips(*args, **kwargs):
+def ext_pillar(minion_id, pillar, **kwargs):
     '''
     Runner for setting up ips for openstack
     '''
-    runner = RunnerClient(master_config('/etc/salt/master'))
-    ifs = runner.cmd(fun='mine.get', kwarg={'tgt': '*', 'fun': 'network.interfaces'})
-    log.debug('Interfaces to setup:\n%s', pprint.pformat(ifs))
+    log.info('START')
+    ifs = __salt__.saltutil.runner('mine.get', tgt='*', fun='network.interfaces')
+    log.info('Interfaces to setup:\n%s', pprint.pformat(ifs))
     ips = {
         'ips': {
             'glance': {
@@ -45,10 +42,6 @@ def ips(*args, **kwargs):
             },
         }
     }
-    log.debug('IPs to setup:\n%s', pprint.pformat(ifs))
-
-    with open('/srv/pillar/ips.sls', 'w') as ipfile:
-        log.debug('Writing ips to file /srv/pillar/ips.sls')
-        yaml.dump(ips, ipfile, default_flow_style=False)
+    log.info('IPs to setup:\n%s', pprint.pformat(ifs))
 
     return ips
