@@ -1,3 +1,11 @@
+cloud setup:
+  salt.function:
+    - name: saltutil.runner
+    - tgt: 'salt*'
+    - kwargs:
+        path: /etc/salt/cloud.maps.d/openstack.sls
+        parallel: True
+
 database setup:
   salt.state:
     - tgt: 'postgres* or memcached* or rabbitmq*'
