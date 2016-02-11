@@ -1,6 +1,6 @@
 ==> /srv/pillar/keystone/token.sls <==
 keystone.token: <token for admin>
-keystone.endpoint: http://{{salt['pillar.get']('ips:keystone:private')}}:35357/v2.0/
+keystone.endpoint: http://{{salt.saltutil.runner('pillar.show_pillar')['ips']['keystone']['private']}}:35357/v2.0/
 
 ==> /srv/pillar/mine.sls <==
 # This one is required
