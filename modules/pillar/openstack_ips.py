@@ -11,9 +11,8 @@ def ext_pillar(minion_id, pillar, **kwargs):
     '''
     Runner for setting up ips for openstack
     '''
-    log.info('START')
     ifs = __salt__.saltutil.runner('mine.get', tgt='*', fun='network.interfaces')
-    log.info('Interfaces to setup:\n%s', pprint.pformat(ifs))
+    log.debug('Interfaces to setup:\n%s', pprint.pformat(ifs))
     ips = {
         'ips': {
             'glance': {
@@ -42,6 +41,6 @@ def ext_pillar(minion_id, pillar, **kwargs):
             },
         }
     }
-    log.info('IPs to setup:\n%s', pprint.pformat(ifs))
+    log.debug('IPs to setup:\n%s', pprint.pformat(ifs))
 
     return ips
