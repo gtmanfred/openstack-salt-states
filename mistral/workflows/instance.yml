@@ -10,7 +10,8 @@ version: '2.0'
 #     "ssh_keyfile": "<password in mistral users .ssh dir",
 #     "key_name": "<keypair name>",
 #     "security_groups": ["default"],
-#     "nics": [{"net-id": "<nic uuid>"}]
+#     "nics": [{"net-id": "<nic uuid>"}],
+#     "userdata": "#cloud-config\nruncmd:\n  - sed -i -e 's/^Defaults\\s\\+requiretty/# \\0/' /etc/sudoers"
 # }'
 
 std.ping_ipaddr:
