@@ -1,2 +1,0 @@
-{% import_yaml "yamls/openstack/rabbitmq.yaml" as openstack %}
-{% set rabbitmq = salt['pillar.get']('rabbitmq', default=openstack.rabbitmq, merge=True) %}

@@ -1,6 +1,0 @@
-centos7-1-iad:
-  - memcached.manfred.io
-
-centos7-2-iad:
-  - postgres.manfred.io
-  - keystone.manfred.io

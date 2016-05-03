@@ -1,6 +1,0 @@
-postgres:
-  users:
-    cinder:
-      username: cinder
-      password: zi3eiliiraeMie9
-      db: cinder

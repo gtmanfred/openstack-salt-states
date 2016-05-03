@@ -1,4 +1,0 @@
-include:
-  - .remove
-  - .records
-
